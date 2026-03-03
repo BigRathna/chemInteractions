@@ -1,0 +1,58 @@
+[
+  {
+    "id": "rxn_org_001",
+    "name": "Fischer Esterification",
+    "reaction_type": "organic",
+    "category": "condensation",
+    "reactant_classes": ["carboxylic_acid", "alcohol"],
+    "conditions_favored": ["acid_catalyst", "heat", "reflux"],
+    "conditions_inhibited": ["basic_pH", "strong_base"],
+    "byproducts": [{ "smiles": "O", "name": "Water" }],
+    "hazards": [],
+    "kb_probability_modifier": 0.88,
+    "mechanism_summary": "Protonation of the carbonyl oxygen by H+ increases its electrophilicity. The alcohol oxygen attacks nucleophorically, followed by proton transfers and loss of water to yield the ester.",
+    "references": ["McMurry Organic Chemistry, 9th Ed., Ch.21"]
+  },
+  {
+    "id": "rxn_org_002",
+    "name": "Amide Bond Formation",
+    "reaction_type": "organic",
+    "category": "condensation",
+    "reactant_classes": ["carboxylic_acid", "amine"],
+    "conditions_favored": ["coupling_agent", "heat"],
+    "conditions_inhibited": ["acidic_pH"],
+    "byproducts": [{ "smiles": "O", "name": "Water" }],
+    "hazards": [],
+    "kb_probability_modifier": 0.85,
+    "mechanism_summary": "Nucleophilic attack of the amine on the activated carboxylic acid carbonyl, followed by elimination of a leaving group (usually water or equivalent).",
+    "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.12"]
+  },
+  {
+    "id": "rxn_org_003",
+    "name": "Alcohol Oxidation (Primary to Acid)",
+    "reaction_type": "organic",
+    "category": "redox",
+    "reactant_classes": ["alcohol"],
+    "conditions_favored": ["strong_oxidant", "cr_vi", "acidic_pH"],
+    "conditions_inhibited": [],
+    "byproducts": [],
+    "hazards": ["Hexavalent Chromium toxicity"],
+    "kb_probability_modifier": 0.75,
+    "mechanism_summary": "Initial formation of a chromate ester followed by elimination to form an aldehyde, which is then hydrated and further oxidized to the carboxylic acid.",
+    "references": ["McMurry Organic Chemistry, 9th Ed., Ch.17"]
+  },
+  {
+     "id": "rxn_org_004",
+     "name": "Grignard Addition to Ketone",
+     "reaction_type": "organic",
+     "category": "nucleophilic_addition",
+     "reactant_classes": ["ketone"],
+     "conditions_favored": ["grignard_reagent", "dry_ether", "acidic_workup"],
+     "conditions_inhibited": ["water", "protic_solvents"],
+     "byproducts": [{ "smiles": "[Mg+2]", "name": "Magnesium salts" }],
+     "hazards": ["Highly flammable ether solvents", "Exothermic"],
+     "kb_probability_modifier": 0.90,
+     "mechanism_summary": "The carbanionic character of the Grignard reagent attacks the electrophilic carbonyl carbon. The resulting alkoxide is then protonated during acidic workup to form a tertiary alcohol.",
+     "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.9"]
+  }
+]

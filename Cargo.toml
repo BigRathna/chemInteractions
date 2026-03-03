@@ -3,6 +3,29 @@ name = "chem-interactions"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "verify-ml"
+path = "src/bin/verify-ml.rs"
+
+[[bin]]
+name = "seed"
+path = "src/bin/seed.rs"
+
+[[bin]]
+name = "verify-rule"
+path = "src/bin/verify-rule.rs"
+
+[[bin]]
+name = "verify-fusion"
+path = "src/bin/verify-fusion.rs"
+
+[[bin]]
+name = "chem-interactions"
+path = "src/main.rs"
+
 [dependencies]
 # Web framework
 axum = { version = "0.7", features = ["macros"] }
@@ -21,10 +44,13 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
 # ONNX inference
-ort = { version = "2.0.0-rc.11", features = ["load-dynamic"] }
+ort = { version = "2.0.0-rc.11" }
 
 # Tokenizer (HuggingFace SentencePiece for ReactionT5)
 tokenizers = "0.19"
+
+# Pure Rust Chemical parsing
+purr = "0.9"
 
 # Error handling
 anyhow = "1"

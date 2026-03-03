@@ -1,0 +1,1 @@
+use chem_interactions::db::seed; use sqlx::SqlitePool; use dotenvy::dotenv; #[tokio::main] async fn main() -> anyhow::Result<()> { dotenv().ok(); let db_url = std::env::var("DATABASE_URL")?; let pool = SqlitePool::connect(&db_url).await?; seed::load_rules(&pool, "knowledge_base").await?; println!("Seeding complete!"); Ok(()) }

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "fg_001",
+    "name": "carboxylic_acid",
+    "smarts": "[CX3](=[OX1])[OX2H1]"
+  },
+  {
+    "id": "fg_002",
+    "name": "alcohol",
+    "smarts": "[OX2H]"
+  },
+  {
+    "id": "fg_003",
+    "name": "amine",
+    "smarts": "[NX3;H2,H1,H0;!$(NC=O)]"
+  },
+  {
+    "id": "fg_004",
+    "name": "ester",
+    "smarts": "[CX3](=[OX1])[OX2][CX4]"
+  },
+  {
+    "id": "fg_005",
+    "name": "amide",
+    "smarts": "[NX3][CX3](=[OX1])"
+  },
+  {
+    "id": "fg_006",
+    "name": "aldehyde",
+    "smarts": "[CX3H1](=O)[#6,H]"
+  },
+  {
+    "id": "fg_007",
+    "name": "ketone",
+    "smarts": "[#6][CX3](=O)[#6]"
+  },
+  {
+    "id": "fg_008",
+    "name": "alkene",
+    "smarts": "[CX3]=[CX3]"
+  },
+  {
+    "id": "fg_009",
+    "name": "alkyne",
+    "smarts": "[CX2]#[CX2]"
+  },
+  {
+    "id": "fg_010",
+    "name": "haloalkane",
+    "smarts": "[CX4][F,Cl,Br,I]"
+  }
+]

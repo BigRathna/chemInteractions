@@ -113,13 +113,13 @@ P_final = 0.65 × P_ml  +  0.35 × P_kb
 
 ## Project Phases
 
-| Phase | Focus                                                       |
-| ----- | ----------------------------------------------------------- |
-| 1     | Rust project, axum, SQLite schema, KB rules, PubChem lookup |
-| 2     | ReactionT5 ONNX export, ort integration, beam search        |
-| 3     | Fusion layer, physical validator, byproducts, explainer     |
-| 4     | Web frontend                                                |
-| 5     | Benchmarking, tests, safety warnings, docs                  |
+| Phase | Focus                                                           |
+| ----- | --------------------------------------------------------------- |
+| 1     | [x] Rust project, axum, SQLite schema, KB rules, PubChem lookup |
+| 2     | ReactionT5 ONNX export, ort integration, beam search            |
+| 3     | Fusion layer, physical validator, byproducts, explainer         |
+| 4     | Web frontend                                                    |
+| 5     | Benchmarking, tests, safety warnings, docs                      |
 
 ---
 

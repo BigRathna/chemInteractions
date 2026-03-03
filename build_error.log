@@ -1,0 +1,262 @@
+   Compiling rdkit-sys v0.4.12
+warning: rdkit-sys@0.4.12: In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/descriptors.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-descriptors.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/descriptors.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/fingerprint.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-fingerprint.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/fingerprint.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_ops.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/mol_ops.h:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-mol_ops.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_ops.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_standardize.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-mol_standardize.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_standardize.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/ro_mol.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-ro_mol.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/ro_mol.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/rw_mol.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-rw_mol.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/rw_mol.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/scaffold_network.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/scaffold_network.h:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-scaffold_network.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/scaffold_network.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/substruct_match.rs.cc:1:
+warning: rdkit-sys@0.4.12: /home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-substruct_match.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/substruct_match.rs.cc"cargo:warning=wrapper/src/descriptors.cc:2:10: fatal error: GraphMol/Descriptors/Property.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <GraphMol/Descriptors/Property.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-descriptors.o" "-c" "wrapper/src/descriptors.cc"cargo:warning=wrapper/src/fingerprint.cc:2:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-fingerprint.o" "-c" "wrapper/src/fingerprint.cc"cargo:warning=wrapper/src/mol_ops.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-mol_ops.o" "-c" "wrapper/src/mol_ops.cc"cargo:warning=wrapper/src/periodic_table.cc:2:10: fatal error: rdkit/GraphMol/PeriodicTable.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <rdkit/GraphMol/PeriodicTable.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-periodic_table.o" "-c" "wrapper/src/periodic_table.cc"cargo:warning=wrapper/src/ro_mol.cc:2:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <DataStructs/ExplicitBitVect.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-ro_mol.o" "-c" "wrapper/src/ro_mol.cc"cargo:warning=wrapper/src/rw_mol.cc:2:10: fatal error: GraphMol/FileParsers/FileParsers.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <GraphMol/FileParsers/FileParsers.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-rw_mol.o" "-c" "wrapper/src/rw_mol.cc"cargo:warning=wrapper/src/scaffold_network.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-scaffold_network.o" "-c" "wrapper/src/scaffold_network.cc"cargo:warning=wrapper/src/mol_standardize.cc:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     4 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-mol_standardize.o" "-c" "wrapper/src/mol_standardize.cc"cargo:warning=wrapper/src/substruct_match.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+warning: rdkit-sys@0.4.12:     2 | #include <GraphMol/GraphMol.h>
+warning: rdkit-sys@0.4.12:       |          ^~~~~~~~~~~~~~~~~~~~~
+warning: rdkit-sys@0.4.12: compilation terminated.
+warning: rdkit-sys@0.4.12: ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-substruct_match.o" "-c" "wrapper/src/substruct_match.cc"
+error: failed to run custom build command for `rdkit-sys v0.4.12`
+
+Caused by:
+  process didn't exit successfully: `/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-d7119bfcb2a53250/build-script-build` (exit status: 1)
+  --- stdout
+  cargo:rerun-if-changed=wrapper/src/descriptors.cc
+  cargo:rerun-if-changed=wrapper/include/descriptors.h
+  cargo:rerun-if-changed=wrapper/src/fingerprint.cc
+  cargo:rerun-if-changed=wrapper/include/fingerprint.h
+  cargo:rerun-if-changed=wrapper/src/mol_ops.cc
+  cargo:rerun-if-changed=wrapper/include/mol_ops.h
+  cargo:rerun-if-changed=wrapper/src/mol_standardize.cc
+  cargo:rerun-if-changed=wrapper/include/mol_standardize.h
+  cargo:rerun-if-changed=wrapper/src/periodic_table.cc
+  cargo:rerun-if-changed=wrapper/include/periodic_table.h
+  cargo:rerun-if-changed=wrapper/src/ro_mol.cc
+  cargo:rerun-if-changed=wrapper/include/ro_mol.h
+  cargo:rerun-if-changed=wrapper/src/rw_mol.cc
+  cargo:rerun-if-changed=wrapper/include/rw_mol.h
+  cargo:rerun-if-changed=wrapper/src/scaffold_network.cc
+  cargo:rerun-if-changed=wrapper/include/scaffold_network.h
+  cargo:rerun-if-changed=wrapper/src/substruct_match.cc
+  cargo:rerun-if-changed=wrapper/include/substruct_match.h
+  cargo:rerun-if-changed=src/bridge/descriptors.rs
+  cargo:rerun-if-changed=src/bridge/fingerprint.rs
+  cargo:rerun-if-changed=src/bridge/mol_ops.rs
+  cargo:rerun-if-changed=src/bridge/mol_standardize.rs
+  cargo:rerun-if-changed=src/bridge/periodic_table.rs
+  cargo:rerun-if-changed=src/bridge/ro_mol.rs
+  cargo:rerun-if-changed=src/bridge/rw_mol.rs
+  cargo:rerun-if-changed=src/bridge/scaffold_network.rs
+  cargo:rerun-if-changed=src/bridge/substruct_match.rs
+  cargo:CXXBRIDGE_PREFIX=rdkit-sys
+  cargo:CXXBRIDGE_DIR0=/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include
+  cargo:CXXBRIDGE_DIR1=/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate
+  OUT_DIR = Some(/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out)
+  OPT_LEVEL = Some(0)
+  TARGET = Some(x86_64-unknown-linux-gnu)
+  CARGO_ENCODED_RUSTFLAGS = Some()
+  HOST = Some(x86_64-unknown-linux-gnu)
+  cargo:rerun-if-env-changed=CXX_x86_64-unknown-linux-gnu
+  CXX_x86_64-unknown-linux-gnu = None
+  cargo:rerun-if-env-changed=CXX_x86_64_unknown_linux_gnu
+  CXX_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=HOST_CXX
+  HOST_CXX = None
+  cargo:rerun-if-env-changed=CXX
+  CXX = None
+  cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+  RUSTC_WRAPPER = None
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  DEBUG = Some(true)
+  CARGO_CFG_TARGET_FEATURE = Some(fxsr,sse,sse2)
+  cargo:rerun-if-env-changed=CXXFLAGS
+  CXXFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CXXFLAGS
+  HOST_CXXFLAGS = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64_unknown_linux_gnu
+  CXXFLAGS_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=CXXFLAGS_x86_64-unknown-linux-gnu
+  CXXFLAGS_x86_64-unknown-linux-gnu = None
+  cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/descriptors.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-descriptors.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/descriptors.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/fingerprint.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-fingerprint.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/fingerprint.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_ops.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/mol_ops.h:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    4 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-mol_ops.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_ops.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_standardize.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-mol_standardize.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/mol_standardize.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/ro_mol.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-ro_mol.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/ro_mol.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/rw_mol.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-rw_mol.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/rw_mol.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/scaffold_network.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/scaffold_network.h:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    4 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-scaffold_network.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/scaffold_network.rs.cc"cargo:warning=In file included from /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/substruct_match.rs.cc:1:
+  cargo:warning=/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12/wrapper/include/ro_mol.h:4:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    4 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/06a88451f010034c-substruct_match.rs.o" "-c" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/sources/rdkit-sys/src/bridge/substruct_match.rs.cc"cargo:warning=wrapper/src/descriptors.cc:2:10: fatal error: GraphMol/Descriptors/Property.h: No such file or directory
+  cargo:warning=    2 | #include <GraphMol/Descriptors/Property.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-descriptors.o" "-c" "wrapper/src/descriptors.cc"cargo:warning=wrapper/src/fingerprint.cc:2:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    2 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-fingerprint.o" "-c" "wrapper/src/fingerprint.cc"cargo:warning=wrapper/src/mol_ops.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    2 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-mol_ops.o" "-c" "wrapper/src/mol_ops.cc"cargo:warning=wrapper/src/periodic_table.cc:2:10: fatal error: rdkit/GraphMol/PeriodicTable.h: No such file or directory
+  cargo:warning=    2 | #include <rdkit/GraphMol/PeriodicTable.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-periodic_table.o" "-c" "wrapper/src/periodic_table.cc"cargo:warning=wrapper/src/ro_mol.cc:2:10: fatal error: DataStructs/ExplicitBitVect.h: No such file or directory
+  cargo:warning=    2 | #include <DataStructs/ExplicitBitVect.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-ro_mol.o" "-c" "wrapper/src/ro_mol.cc"cargo:warning=wrapper/src/rw_mol.cc:2:10: fatal error: GraphMol/FileParsers/FileParsers.h: No such file or directory
+  cargo:warning=    2 | #include <GraphMol/FileParsers/FileParsers.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-rw_mol.o" "-c" "wrapper/src/rw_mol.cc"cargo:warning=wrapper/src/scaffold_network.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    2 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-scaffold_network.o" "-c" "wrapper/src/scaffold_network.cc"cargo:warning=wrapper/src/mol_standardize.cc:4:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    4 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 0
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-mol_standardize.o" "-c" "wrapper/src/mol_standardize.cc"cargo:warning=wrapper/src/substruct_match.cc:2:10: fatal error: GraphMol/GraphMol.h: No such file or directory
+  cargo:warning=    2 | #include <GraphMol/GraphMol.h>
+  cargo:warning=      |          ^~~~~~~~~~~~~~~~~~~~~
+  cargo:warning=compilation terminated.
+
+  exit status: 1
+  cargo:warning=ToolExecError: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-substruct_match.o" "-c" "wrapper/src/substruct_match.cc"
+
+  --- stderr
+
+  CXX include path:
+    /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include
+    /home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate
+
+
+  error occurred in cc-rs: command did not execute successfully (status code exit status: 1): LC_ALL="C" "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-gdwarf-4" "-fno-omit-frame-pointer" "-m64" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/include" "-I" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/cxxbridge/crate" "-I" "/usr/local/include" "-I" "/usr/local/include/rdkit" "-I" "/usr/include" "-I" "/usr/include/rdkit" "-I" "/home/brr/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rdkit-sys-0.4.12" "-w" "-std=c++17" "-o" "/home/brr/Work/chemInteractions/target/debug/build/rdkit-sys-2776d3d95dda4f37/out/743184b52ecb2d74-substruct_match.o" "-c" "wrapper/src/substruct_match.cc"
+
+

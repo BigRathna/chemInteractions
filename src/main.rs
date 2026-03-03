@@ -1,19 +1,8 @@
-mod api;
-mod config;
-mod db;
-mod error;
-mod models;
-mod predictor;
-
+use chem_interactions::{api, config, db, predictor, AppState};
 use axum::{routing::get, Router};
 use std::sync::Arc;
 use tokio::net::TcpListener;
 use tracing::info;
-
-pub struct AppState {
-    pub db: sqlx::SqlitePool,
-    pub ml_engine: Arc<predictor::ml_brain::engine::MlEngine>,
-}
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -26,9 +15,13 @@ async fn main() -> anyhow::Result<()> {
     let db = db::init_pool(&cfg.database_url).await?;
     db::seed::load_rules(&db, "knowledge_base/").await?;
 
-    let ml_engine = Arc::new(predictor::ml_brain::engine::MlEngine::load(&cfg.model_path)?);
+    let ml_engine = predictor::ml_brain::engine::MlEngine::load(&cfg.model_path)?;
+    let rule_brain = predictor::rule_brain::RuleBrain::new(db.clone());
+    let pubchem = predictor::pubchem::PubChemClient::new(db.clone());
+    
+    let fusion_engine = Arc::new(predictor::fusion::FusionEngine::new(ml_engine, rule_brain, pubchem));
 
-    let state = Arc::new(AppState { db, ml_engine });
+    let state = Arc::new(AppState { db, fusion_engine });
 
     let app = Router::new()
         .route("/health", get(|| async { "ok" }))

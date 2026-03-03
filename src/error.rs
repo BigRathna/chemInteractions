@@ -21,13 +21,25 @@ pub enum AppError {
     Api(String),
 
     #[error("ML error: {0}")]
-    Ml(String),
+    Ml(#[from] ort::Error),
 
     #[error("Not found: {0}")]
     NotFound(String),
 
     #[error("Internal error: {0}")]
     Internal(#[from] anyhow::Error),
+
+    #[error("HTTP error: {0}")]
+    Reqwest(#[from] reqwest::Error),
+
+    #[error("Bad request: {0}")]
+    BadRequest(String),
+}
+
+impl From<serde_json::Error> for AppError {
+    fn from(err: serde_json::Error) -> Self {
+        AppError::Internal(err.into())
+    }
 }
 
 impl IntoResponse for AppError {
