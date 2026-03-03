@@ -1,0 +1,18 @@
+# Rust
+/target/
+
+# Environment
+.env
+
+# Database
+/data/*.db
+/data/*.db-journal
+/data/*.db-shm
+/data/*.db-wal
+
+# Models (Large binaries)
+/models/*.onnx
+
+# OS
+.DS_Store
+Thumbs.db
