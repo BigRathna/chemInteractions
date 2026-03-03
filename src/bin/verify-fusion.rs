@@ -15,7 +15,7 @@ async fn main() -> anyhow::Result<()> {
     
     println!("--- Initializing Fusion Pipeline ---");
     let pool = db::init_pool(&cfg.database_url).await?;
-    let ml_engine = MlEngine::load(&cfg.model_path)?;
+    let ml_engine = Arc::new(MlEngine::load(&cfg.model_path)?);
     let rule_brain = RuleBrain::new(pool.clone());
     let pubchem = PubChemClient::new(pool.clone());
     

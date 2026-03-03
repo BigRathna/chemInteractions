@@ -1,5 +1,5 @@
 use chem_interactions::{api, config, db, predictor, AppState};
-use axum::{routing::get, Router};
+use axum::Router;
 use std::sync::Arc;
 use tokio::net::TcpListener;
 use tracing::info;
@@ -15,7 +15,7 @@ async fn main() -> anyhow::Result<()> {
     let db = db::init_pool(&cfg.database_url).await?;
     db::seed::load_rules(&db, "knowledge_base/").await?;
 
-    let ml_engine = predictor::ml_brain::engine::MlEngine::load(&cfg.model_path)?;
+    let ml_engine = Arc::new(predictor::ml_brain::engine::MlEngine::load(&cfg.model_path)?);
     let rule_brain = predictor::rule_brain::RuleBrain::new(db.clone());
     let pubchem = predictor::pubchem::PubChemClient::new(db.clone());
     
@@ -24,7 +24,7 @@ async fn main() -> anyhow::Result<()> {
     let state = Arc::new(AppState { db, fusion_engine });
 
     let app = Router::new()
-        .route("/health", get(|| async { "ok" }))
+        .fallback_service(tower_http::services::ServeDir::new("frontend").fallback(tower_http::services::ServeFile::new("frontend/index.html")))
         .nest("/api", api::routes())
         .with_state(state);
 

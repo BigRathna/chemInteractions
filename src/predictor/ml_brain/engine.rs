@@ -3,6 +3,12 @@ use crate::error::AppError;
 use super::tokenizer::SmilesTokenizer;
 
 use tokio::sync::Mutex;
+use async_trait::async_trait;
+
+#[async_trait]
+pub trait MlPredictor: Send + Sync {
+    async fn predict(&self, smiles_input: &str) -> Result<Vec<MlCandidate>, AppError>;
+}
 
 pub struct MlEngine {
     encoder: Mutex<Session>,
@@ -30,8 +36,21 @@ impl MlEngine {
             tokenizer,
         })
     }
+}
+impl MlEngine {
+    #[allow(dead_code)]
+    fn normalize_beams(candidates: &mut Vec<MlCandidate>) {
+        if candidates.is_empty() { return; }
+        let total: f32 = candidates.iter().map(|c| c.confidence.exp()).sum();
+        for c in candidates.iter_mut() {
+            c.confidence = c.confidence.exp() / total;
+        }
+    }
+}
 
-    pub async fn predict(&self, smiles_input: &str) -> Result<Vec<MlCandidate>, AppError> {
+#[async_trait]
+impl MlPredictor for MlEngine {
+    async fn predict(&self, smiles_input: &str) -> Result<Vec<MlCandidate>, AppError> {
         // ReactionT5 expects: "REACTANT:{smiles}REAGENT: "
         let formatted_input = format!("REACTANT:{}REAGENT: ", smiles_input);
         
@@ -111,14 +130,6 @@ impl MlEngine {
             confidence: top_confidence,
             rank: 1,
         }])
-    }
-
-    fn normalize_beams(candidates: &mut Vec<MlCandidate>) {
-        if candidates.is_empty() { return; }
-        let total: f32 = candidates.iter().map(|c| c.confidence.exp()).sum();
-        for c in candidates.iter_mut() {
-            c.confidence = c.confidence.exp() / total;
-        }
     }
 }
 

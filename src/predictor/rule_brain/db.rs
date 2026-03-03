@@ -44,6 +44,7 @@ pub async fn find_matching_rules(
             hazards: serde_json::from_str(&row.hazards)?,
             mechanism_summary: row.mechanism_summary,
             references: serde_json::from_str(&row.references)?,
+            reactant_classes,
         });
     }
 
@@ -63,6 +64,7 @@ fn calculate_score(favored: &[String], inhibited: &[String], user_tokens: &[Stri
 }
 
 // Note: Using a trait or local struct for the row data to avoid macro limitations in score_conditions
+#[allow(dead_code)]
 struct RuleData {
     conditions_favored: String,
     conditions_inhibited: String,

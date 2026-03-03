@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChemInteractions | Alpha Prediction Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <div class="logo">CHEM<span>INTERACTIONS</span></div>
+        <nav class="mono" style="display: flex; align-items: center; gap: 2rem;">
+            <div class="mode-toggle">
+                <button id="mode-scientific" class="btn-toggle active">SCIENTIFIC_MODE</button>
+                <button id="mode-nl" class="btn-toggle">NATURAL_LANGUAGE</button>
+            </div>
+            [ v0.1.0-ALPHA ]
+        </nav>
+      </header>
+
+      <main>
+            <!-- Scientific Input Mode -->
+            <section id="scientific-input" class="predictor-section fade-in">
+                <div class="card">
+                    <h2 class="mono" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-secondary);">// INPUT_SYSTEM_INITIALIZED</h2>
+                    
+                    <div id="reactants-container">
+                        <div class="input-container">
+                            <label class="mono" style="font-size: 0.75rem;">REACTANT_01</label>
+                            <input type="text" placeholder="Enter compound name or SMILES..." class="reactant-input">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button id="add-reactant" class="btn" style="border-style: dashed; opacity: 0.6;">+ Add Reactant</button>
+                    </div>
+
+                    <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="input-container">
+                            <label class="mono" style="font-size: 0.75rem;">TEMPERATURE_C</label>
+                            <input type="number" id="temp-input" placeholder="25">
+                        </div>
+                        <div class="input-container">
+                            <label class="mono" style="font-size: 0.75rem;">CATALYST</label>
+                            <input type="text" id="catalyst-input" placeholder="None">
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <button id="predict-btn" class="btn" style="width: 100%; font-weight: 700;">Execute Prediction Pipeline</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Natural Language Mode -->
+            <section id="nl-input" class="predictor-section fade-in" style="display: none;">
+                <div class="card">
+                    <h2 class="mono" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-secondary);">// NEURAL_LINGUISTIC_INITIALIZED</h2>
+                    <div class="input-container">
+                        <label class="mono" style="font-size: 0.75rem;">RAW_DESCRIPTION</label>
+                        <textarea id="nl-textarea" placeholder="Describe your reaction in plain English (e.g., 'React acetic acid with ethanol under reflux')..." rows="4"></textarea>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <button id="predict-btn-nl" class="btn" style="width: 100%; font-weight: 700;">Execute Linguistic Analysis</button>
+                    </div>
+                </div>
+            </section>
+
+        <section id="results-section" class="results-grid"></section>
+      </main>
+
+      <footer
+        style="
+          margin-top: 5rem;
+          padding-top: 2rem;
+          border-top: 1px solid var(--border-subtle);
+          text-align: center;
+          color: var(--text-muted);
+          font-size: 0.75rem;
+        "
+        class="mono"
+      >
+        SECURE_DATA_CONNECTION_ESTABLISHED // PUBCHEM_LINK_ACTIVE
+      </footer>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

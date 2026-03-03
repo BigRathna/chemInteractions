@@ -54,5 +54,61 @@
      "kb_probability_modifier": 0.90,
      "mechanism_summary": "The carbanionic character of the Grignard reagent attacks the electrophilic carbonyl carbon. The resulting alkoxide is then protonated during acidic workup to form a tertiary alcohol.",
      "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.9"]
+  },
+  {
+     "id": "rxn_org_005",
+     "name": "Nitrile Reduction",
+     "reaction_type": "organic",
+     "category": "reduction",
+     "reactant_classes": ["nitrile"],
+     "conditions_favored": ["lialh4", "h2_pd_c", "acidic_workup"],
+     "conditions_inhibited": [],
+     "byproducts": [],
+     "hazards": ["LiAlH4 is highly reactive with water", "Flammable"],
+     "kb_probability_modifier": 0.82,
+     "mechanism_summary": "Nucleophilic attack of hydride (from LiAlH4) on the electrophilic nitrile carbon, followed by further reduction to the primary amine after aqueous workup.",
+     "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.10"]
+  },
+  {
+     "id": "rxn_org_006",
+     "name": "Nitro Reduction",
+     "reaction_type": "organic",
+     "category": "reduction",
+     "reactant_classes": ["nitro"],
+     "conditions_favored": ["h2_pd_c", "sn_hcl", "fe_hcl"],
+     "conditions_inhibited": [],
+     "byproducts": [{ "smiles": "O", "name": "Water" }],
+     "hazards": [],
+     "kb_probability_modifier": 0.88,
+     "mechanism_summary": "Catalytic hydrogenation or chemical reduction (metal/acid) of the nitro group to an amino group, often passing through nitroso and hydroxylamine intermediates.",
+     "references": ["McMurry Organic Chemistry, 9th Ed., Ch.24"]
+  },
+  {
+     "id": "rxn_org_007",
+     "name": "Nitrile Hydrolysis",
+     "reaction_type": "organic",
+     "category": "hydrolysis",
+     "reactant_classes": ["nitrile"],
+     "conditions_favored": ["acid_catalyst", "heat", "reflux"],
+     "conditions_inhibited": [],
+     "byproducts": [{ "smiles": "[NH4+]", "name": "Ammonium" }],
+     "hazards": [],
+     "kb_probability_modifier": 0.90,
+     "mechanism_summary": "Nucleophilic attack of water on the protonated nitrile carbon forms an amide intermediate, which is further hydrolyzed to the carboxylic acid and ammonium.",
+     "references": ["McMurry Organic Chemistry, 9th Ed., Ch.21"]
+  },
+  {
+     "id": "rxn_org_008",
+     "name": "Ester Hydrolysis (Saponification)",
+     "reaction_type": "organic",
+     "category": "hydrolysis",
+     "reactant_classes": ["ester"],
+     "conditions_favored": ["strong_base", "heat"],
+     "conditions_inhibited": [],
+     "byproducts": [{ "smiles": "[O-]C", "name": "Alkoxide/Alcohol" }],
+     "hazards": ["Strong base"],
+     "kb_probability_modifier": 0.88,
+     "mechanism_summary": "Hydroxide nucleophile attacks the ester carbonyl, forming a tetrahedral intermediate. Elimination of alkoxide yields the carboxylic acid (as a carboxylate salt).",
+     "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.12"]
   }
 ]

@@ -1,4 +1,4 @@
-use chem_interactions::predictor::ml_brain::engine::MlEngine;
+use chem_interactions::predictor::ml_brain::engine::{MlEngine, MlPredictor};
 use chem_interactions::config::Config;
 
 #[tokio::main]

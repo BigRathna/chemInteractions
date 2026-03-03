@@ -216,6 +216,7 @@ name = "chem-interactions"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "axum",
  "dotenvy",
  "once_cell",

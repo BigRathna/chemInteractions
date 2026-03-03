@@ -1,6 +1,5 @@
 use crate::error::AppError;
 use purr::walk::Follower;
-use purr::graph::{Atom, Bond};
 
 pub struct Parser;
 
@@ -8,9 +7,10 @@ impl Parser {
     pub fn validate_smiles(smiles: &str) -> bool {
         struct DummyFollower;
         impl Follower for DummyFollower {
-            fn root(&mut self, _root: usize) {}
-            fn atom(&mut self, _atom: Atom) {}
-            fn bond(&mut self, _bond: Bond, _target: usize) {}
+            fn root(&mut self, _: purr::feature::AtomKind) {}
+            fn extend(&mut self, _: purr::feature::BondKind, _: purr::feature::AtomKind) {}
+            fn join(&mut self, _: purr::feature::BondKind, _: purr::feature::Rnum) { }
+            fn pop(&mut self, _: usize) {}
         }
         let mut follower = DummyFollower;
         purr::read::read(smiles, &mut follower, None).is_ok()

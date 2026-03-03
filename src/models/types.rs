@@ -36,10 +36,17 @@ pub struct FunctionalGroup {
     pub smarts: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Default)]
 pub struct PredictionRequest {
     pub reactants: Vec<String>,
-    pub conditions: Option<String>,
+    pub conditions: Option<ConditionsInput>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(untagged)]
+pub enum ConditionsInput {
+    Raw(String),
+    Structured(Conditions),
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -52,6 +59,9 @@ pub struct PredictionResponse {
     pub explanation: String,
     pub mechanism: Option<String>,
     pub references: Vec<String>,
+    pub ml_raw: Option<String>,
+    pub kb_match: Option<KbMatch>,
+    pub reactant_groups: Vec<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -64,9 +74,10 @@ pub struct KbMatch {
     pub hazards: Vec<String>,
     pub mechanism_summary: String,
     pub references: Vec<String>,
+    pub reactant_classes: Vec<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Default, PartialEq)]
 pub struct Conditions {
     pub temperature: Option<f32>,
     pub ph: Option<f32>,
@@ -96,7 +107,7 @@ impl Conditions {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum ConfidenceTier {
     High,
     Medium,

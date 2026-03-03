@@ -1,18 +1,23 @@
 use crate::models::types::{PredictionResponse, Conditions, Compound, ConfidenceTier};
 use crate::error::AppError;
-use crate::predictor::ml_brain::engine::MlEngine;
+use crate::predictor::ml_brain::engine::MlPredictor;
 use crate::predictor::rule_brain::RuleBrain;
 use crate::predictor::pubchem::PubChemClient;
 use crate::predictor::rule_brain::matcher;
+use crate::predictor::explainer::Explainer;
+use crate::predictor::byproducts::Byproducts;
+use crate::predictor::validator::Validator;
+use std::sync::Arc;
+use std::collections::HashSet;
 
 pub struct FusionEngine {
-    ml_brain: MlEngine,
+    ml_brain: Arc<dyn MlPredictor>,
     rule_brain: RuleBrain,
     pubchem: PubChemClient,
 }
 
 impl FusionEngine {
-    pub fn new(ml_brain: MlEngine, rule_brain: RuleBrain, pubchem: PubChemClient) -> Self {
+    pub fn new(ml_brain: Arc<dyn MlPredictor>, rule_brain: RuleBrain, pubchem: PubChemClient) -> Self {
         Self { ml_brain, rule_brain, pubchem }
     }
 
@@ -35,10 +40,26 @@ impl FusionEngine {
         let rule_matches = self.rule_brain.predict(reactants, conditions).await?;
         let top_rule = rule_matches.first();
 
+        // 2b. RESOLVE REACTANT NAMES TO SMILES
+        // We try to resolve all reactants to SMILES for functional group detection
+        let mut resolved_reactants = Vec::new();
+        for r in reactants {
+            if let Ok(metadata) = self.pubchem.resolve_by_name(r).await {
+                resolved_reactants.push(metadata.smiles);
+            } else {
+                resolved_reactants.push(r.clone()); // Fallback to raw if not found
+            }
+        }
+
+        // Detect functional groups once for the whole pipeline
+        let reactant_groups: HashSet<String> = resolved_reactants.iter()
+            .flat_map(|r| matcher::detect_functional_groups(r))
+            .collect();
+
         // 3. Fusion Logic: Verify ML against Rules
         let mut final_response = PredictionResponse {
             reaction_name: "Unknown Reaction".to_string(),
-            probability: top_ml.confidence,
+            probability: (top_ml.confidence / 100.0).clamp(0.0, 0.99), // Pseudo-normalization for logit sums
             products: vec![Compound {
                 name: "Primary Product".to_string(),
                 smiles: top_ml.smiles.clone(),
@@ -49,40 +70,46 @@ impl FusionEngine {
             explanation: "Predicted by ReactionT5 Transformer model.".to_string(),
             mechanism: None,
             references: vec![],
+            ml_raw: Some(top_ml.smiles.clone()),
+            kb_match: None,
+            reactant_groups: reactant_groups.iter().cloned().collect(),
         };
 
         if let Some(rule) = top_rule {
+            final_response.kb_match = Some(rule.clone());
             final_response.reaction_name = rule.name.clone();
             final_response.mechanism = Some(rule.mechanism_summary.clone());
             final_response.references = rule.references.clone();
             final_response.byproducts = rule.byproducts.clone();
 
-            // Verification: Does the ML product possess the functional groups expected by the rule?
-            // e.g. For Fischer Esterification, does the product have an 'ester' group?
-            let product_groups = matcher::detect_functional_groups(&top_ml.smiles);
+            let mut is_verified = rule.reactant_classes.iter().all(|rc| reactant_groups.contains(rc));
             
-            // Heuristic for verification:
-            // If the rule category is 'condensation', and the rule is Fischer Esterification, 
-            // check if the product is an ester.
-            let is_verified = match rule.name.as_str() {
-                "Fischer Esterification" => product_groups.contains(&"ester".to_string()),
-                "Amide Bond Formation" => product_groups.contains(&"amide".to_string()),
-                _ => false,
-            };
+            if is_verified {
+                if !Validator::validate_reaction(reactants, &final_response.products[0].smiles, &rule.name) {
+                    is_verified = false;
+                }
+            }
 
             if is_verified {
                 final_response.confidence_tier = ConfidenceTier::RuleVerified;
-                final_response.explanation = format!(
-                    "Verified by {} rule (Best Match). Mechanism: {}",
-                    rule.name, rule.mechanism_summary
-                );
+                final_response.probability = 0.95 + (final_response.probability * 0.05); // Boost for verified rules
             } else {
                 final_response.confidence_tier = ConfidenceTier::Medium;
-                final_response.explanation = format!(
-                    "ML prediction matches {} rule structurally, but functional group verification failed.",
-                    rule.name
-                );
             }
+
+            let tier_str = match final_response.confidence_tier {
+                ConfidenceTier::RuleVerified => "RuleVerified",
+                ConfidenceTier::Medium => "Medium",
+                _ => "MlPredicted",
+            };
+
+            final_response.explanation = Explainer::generate_explanation(
+                &rule.name,
+                &rule.mechanism_summary,
+                tier_str
+            );
+            
+            final_response.byproducts = Byproducts::annotate(&rule.byproducts);
         }
 
         // 4. Enrich with PubChem metadata (Optional/Best Effort)
