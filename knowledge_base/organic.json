@@ -110,5 +110,19 @@
      "kb_probability_modifier": 0.88,
      "mechanism_summary": "Hydroxide nucleophile attacks the ester carbonyl, forming a tetrahedral intermediate. Elimination of alkoxide yields the carboxylic acid (as a carboxylate salt).",
      "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.12"]
+  },
+  {
+     "id": "rxn_org_009",
+     "name": "Grignard Carbonation",
+     "reaction_type": "organic",
+     "category": "nucleophilic_addition",
+     "reactant_classes": ["grignard_reagent"],
+     "conditions_favored": ["co2", "dry_ice", "acidic_workup"],
+     "conditions_inhibited": ["water", "protic_solvents"],
+     "byproducts": [{ "smiles": "[Mg+2]", "name": "Magnesium salts" }],
+     "hazards": ["Exothermic", "Pressure from CO2 sublimating"],
+     "kb_probability_modifier": 0.92,
+     "mechanism_summary": "The carbanionic Grignard reagent attacks carbon dioxide to form a carboxylate salt, which is then protonated to the carboxylic acid during acidic workup.",
+     "references": ["Clayden Organic Chemistry, 2nd Ed., Ch.9"]
   }
 ]

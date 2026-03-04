@@ -151,7 +151,6 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     }
                 }
             },
-            },
             AtomKind::Aromatic(_) => {
                 groups.push("aromatic_ring".to_string());
             }

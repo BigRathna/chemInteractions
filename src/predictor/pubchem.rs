@@ -30,6 +30,10 @@ impl PubChemClient {
     }
 
     pub async fn resolve_molecule(&self, query: &str) -> Result<PubChemResult, AppError> {
+        self.resolve_by_name(query).await
+    }
+
+    pub async fn resolve_by_name(&self, query: &str) -> Result<PubChemResult, AppError> {
         // 1. Check Cache (by name)
         if let Ok(Some(cached)) = self.get_from_cache(query, true).await {
             return Ok(cached);
