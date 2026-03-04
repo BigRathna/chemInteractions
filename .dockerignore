@@ -1,0 +1,15 @@
+target/
+.git/
+.gitignore
+.env
+*.log
+frontend/node_modules/
+**/__pycache__/
+.DS_Store
+Dockerfile
+docker-compose.yml
+.agent/
+brain/
+implementation_plan.md
+task.md
+walkthrough.md

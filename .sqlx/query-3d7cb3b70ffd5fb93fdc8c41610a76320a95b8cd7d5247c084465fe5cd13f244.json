@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT OR IGNORE INTO reaction_rules (\n                        id, name, reaction_type, category, reactant_classes, \n                        conditions_favored, conditions_inhibited, byproducts, \n                        hazards, kb_probability_modifier, mechanism_summary, \"references\"\n                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 12
+    },
+    "nullable": []
+  },
+  "hash": "3d7cb3b70ffd5fb93fdc8c41610a76320a95b8cd7d5247c084465fe5cd13f244"
+}

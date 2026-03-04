@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT OR REPLACE INTO compounds_cache (name_query, smiles, formula, iupac_name, cid) VALUES (?, ?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": []
+  },
+  "hash": "ccbca3de7b0a37a32ffb9d637b214754d5ac417f3248933e7233014bbd9d4891"
+}

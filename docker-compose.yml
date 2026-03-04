@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  chem-interactions:
+    build: .
+    image: chem-interactions:latest
+    container_name: chem-interactions
+    ports:
+      - "8080:8080"
+    volumes:
+      - chem-data:/app/data    # persists the SQLite database across restarts
+    environment:
+      - DATABASE_URL=sqlite://data/knowledge_base.db
+      - MODEL_PATH=/app/models
+      - PUBCHEM_API=https://pubchem.ncbi.nlm.nih.gov/rest/pug
+      - RUST_LOG=info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  chem-data:

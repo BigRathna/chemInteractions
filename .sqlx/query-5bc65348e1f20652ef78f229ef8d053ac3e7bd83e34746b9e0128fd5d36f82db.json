@@ -1,0 +1,86 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT \n            id, name, reaction_type, category, reactant_classes, \n            conditions_favored, conditions_inhibited, byproducts, \n            hazards, kb_probability_modifier, mechanism_summary, \"references\"\n        FROM reaction_rules",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "name",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "reaction_type",
+        "ordinal": 2,
+        "type_info": "Text"
+      },
+      {
+        "name": "category",
+        "ordinal": 3,
+        "type_info": "Text"
+      },
+      {
+        "name": "reactant_classes",
+        "ordinal": 4,
+        "type_info": "Text"
+      },
+      {
+        "name": "conditions_favored",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "conditions_inhibited",
+        "ordinal": 6,
+        "type_info": "Text"
+      },
+      {
+        "name": "byproducts",
+        "ordinal": 7,
+        "type_info": "Text"
+      },
+      {
+        "name": "hazards",
+        "ordinal": 8,
+        "type_info": "Text"
+      },
+      {
+        "name": "kb_probability_modifier",
+        "ordinal": 9,
+        "type_info": "Float"
+      },
+      {
+        "name": "mechanism_summary",
+        "ordinal": 10,
+        "type_info": "Text"
+      },
+      {
+        "name": "references",
+        "ordinal": 11,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "5bc65348e1f20652ef78f229ef8d053ac3e7bd83e34746b9e0128fd5d36f82db"
+}
