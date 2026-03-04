@@ -1,65 +1,79 @@
-# ChemInteractions [v0.1.0-ALPHA]
+# ChemInteractions [v0.2.0-BETA]
 
-A high-performance, Rust-based chemical interaction engine fusing **ReactionT5 Neural Networks** with **Rule-Based Chemical Logic**.
+A high-performance, Rust-based chemical interaction engine fusing **ReactionT5 Neural Networks** with **Rule-Based Chemical Logic**. Optimized for deployment via Docker and verified for high-accuracy standard organic reactions.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Docker - Recommended)
+
+The easiest way to run the full stack (Backend + Frontend + Database) is using Docker Compose.
 
 ### 1. Requirements
 
-- **Rust** (Stable or Nightly)
-- **ONNX Model**: Ensure the ReactionT5 ONNX model is located at the path specified in your `.env` (default: `./models/reaction_t5.onnx`).
-- **Knowledge Base**: Seed data is stored in `./knowledge_base/`.
+- **Docker** and **Docker Compose** installed.
+- (Pre-configured) The project includes a pre-seeded SQLite database and the ReactionT5 ONNX model.
 
-### 2. Environment Setup
-
-Create a `.env` file in the root directory (one should already exist if you've been following the build):
+### 2. Stand up the Services
 
 ```bash
-DATABASE_URL=sqlite:data/chem.db
-MODEL_PATH=./models/reaction_t5.onnx
-PUBCHEM_API=https://pubchem.ncbi.nlm.nih.gov/rest/pug
+# Build and start in detached mode
+docker compose up -d
+```
+
+### 3. Access the Dashboard
+
+Navigate to: 👉 **[http://localhost:8080](http://localhost:8080)**
+
+---
+
+## 🛠 Local Development Setup
+
+If you prefer to run natively on your machine:
+
+### 1. Requirements
+
+- **Rust** 1.92+
+- **SQLite3**
+- **ONNX Runtime**: Managed by the `ort` crate.
+
+### 2. Prepare the Database & SQLx
+
+```bash
+# Install sqlx-cli if you haven't
+cargo install sqlx-cli --no-default-features --features sqlite
+
+# Initialize the offline query cache (required for compilation)
+cargo sqlx prepare -- --lib
 ```
 
 ### 3. Run the Server
 
 ```bash
-cargo run --bin chem-interactions
+cargo run --release --bin chem-interactions
 ```
 
-_Port: `8080` by default._
-
 ---
 
-## 🧪 Using the Scientific UI
+## 🧪 Feature Examples
 
-Once the server is running, navigate to:
-👉 **[http://localhost:8080](http://localhost:8080)**
+### 1. Scientific Input (SMILES/Names)
 
-### Sample Interaction: Fischer Esterification
+| Reactant A                   | Reactant B      | Conditions      | Expected Result                              |
+| :--------------------------- | :-------------- | :-------------- | :------------------------------------------- |
+| `CC(=O)O` (Acetic Acid)      | `CCO` (Ethanol) | `reflux, H2SO4` | **Fischer Esterification** → Ethyl Acetate   |
+| `NC1=CC=C([N+](=O)[O-])C=C1` | (None)          | `H2, Pd/C`      | **Nitro Reduction** → p-Phenylenediamine     |
+| `C1=CC=CC=C1` (Benzene)      | `ClCC`          | `AlCl3`         | **Friedel-Crafts Alkylation** → Ethylbenzene |
 
-1.  **Reactant 01**: Enter `CC(=O)O` (Acetic Acid)
-2.  **Add Reactant**: Click the button.
-3.  **Reactant 02**: Enter `CCO` (Ethanol)
-4.  **Temperature**: Set to `110` (Celsius)
-5.  **Catalyst**: Enter `H2SO4`
-6.  **Execute**: Click "**Execute Prediction Pipeline**"
+### 2. Natural Language Input
 
-**What to expect**:
+The engine uses a heuristic parser to extract reactants and conditions from text:
 
-- The system will match the **Rule Brain** (Fischer Esterification).
-- It will verify the **ML Prediction** (Ethyl Acetate).
-- It will annotate **Water** as a byproduct.
-- It will provide a **Mechanism Summary**.
+- **Query**: "React Acetic Acid with Ethanol under reflux with an acid catalyst."
+- **Parse**: Reactants: `["Acetic Acid", "Ethanol"]`, Conditions: `{ heat: true, catalyst: "Acid" }`.
 
----
+### 3. API Reference
 
-## 📡 API Reference
-
-### POST `/api/predict`
-
-Predicts interaction between reactants.
+#### **POST** `/api/predict`
 
 ```bash
 curl -X POST http://localhost:8080/api/predict \
@@ -70,19 +84,34 @@ curl -X POST http://localhost:8080/api/predict \
      }'
 ```
 
-### GET `/api/compounds?q=<QUERY>`
+#### **GET** `/api/compound/:name`
 
-Resolves compound names to SMILES and Formula via PubChem.
+Resolves metadata from PubChem or Local Cache.
 
 ```bash
-curl "http://localhost:8080/api/compounds?q=Aspirin"
+curl http://localhost:8080/api/compound/Aspirin
+```
+
+#### **GET** `/api/reactions`
+
+Lists all available textbook rules in the Rule Brain.
+
+```bash
+curl http://localhost:8080/api/reactions
 ```
 
 ---
 
 ## 🛠 Project Structure
 
-- **/frontend**: "Supreme Scientific" minimalist dashboard.
-- **/src/predictor**: Fusion engine, Rule brain, and ML inference.
-- **/knowledge_base**: JSON-based textbook reaction rules.
-- **/tests**: Comprehensive integration test suite.
+- **/frontend**: "Supreme Scientific" minimalist dashboard (Vanilla JS/CSS).
+- **/src/predictor**: Fusion engine, Rule brain (textbook-based), and ML brain (ReactionT5).
+- **/knowledge_base**: JSON-based textbook reaction rules (Fischer, Grignard, etc.).
+- **/models**: ONNX weights for ReactionT5.
+- **/data**: Persistent SQLite storage.
+
+---
+
+## 🏗 CI/CD & Dockerization
+
+The project uses a multi-stage Docker build based on **Ubuntu 24.04** to satisfy the glibc 2.38+ requirements of the `ort` ONNX runtime. Offline SQLx compilation is enabled via `.sqlx` metadata.
