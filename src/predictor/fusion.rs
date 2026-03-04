@@ -57,9 +57,15 @@ impl FusionEngine {
             .collect();
 
         // 3. Fusion Logic: Verify ML against Rules
+        let initial_explanation = Explainer::generate_explanation(
+            "Unknown Reaction",
+            "No matching textbook rule found.",
+            "MlPredicted"
+        );
+
         let mut final_response = PredictionResponse {
             reaction_name: "Unknown Reaction".to_string(),
-            probability: (top_ml.confidence / 100.0).clamp(0.0, 0.99), // Pseudo-normalization for logit sums
+            probability: (top_ml.confidence / 100.0).clamp(0.0, 0.99),
             products: vec![Compound {
                 name: "Primary Product".to_string(),
                 smiles: top_ml.smiles.clone(),
@@ -67,7 +73,7 @@ impl FusionEngine {
             }],
             byproducts: vec![],
             confidence_tier: ConfidenceTier::MlPredicted,
-            explanation: "Predicted by ReactionT5 Transformer model.".to_string(),
+            explanation: initial_explanation,
             mechanism: None,
             references: vec![],
             ml_raw: Some(top_ml.smiles.clone()),

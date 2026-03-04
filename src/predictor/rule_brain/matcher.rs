@@ -1,5 +1,5 @@
 use purr::read::read;
-use purr::feature::{AtomKind, Aliphatic, BondKind};
+use purr::feature::{AtomKind, Aliphatic, BondKind, BracketSymbol, Element, Aromatic, BracketAromatic};
 use purr::graph::Builder;
 
 pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
@@ -18,15 +18,22 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
 
     // 2. Identify functional groups by inspecting atoms and their neighbors
     for (i, atom) in atoms.iter().enumerate() {
+        // Aromatic ring check: Use the built-in is_aromatic() or manual check
+        if atom.kind.is_aromatic() {
+            groups.push("aromatic_ring".to_string());
+        }
+
         match &atom.kind {
-            // Check for Carbonyl-based groups and others on Carbon
-            AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C) => {
+            // Check for Carbonyl-based groups and others on Carbon (Aliphatic, Aromatic, or Bracketed)
+            AtomKind::Aliphatic(Aliphatic::C) | 
+            AtomKind::Aromatic(Aromatic::C) | 
+            AtomKind::Bracket { symbol: BracketSymbol::Element(Element::C), .. } |
+            AtomKind::Bracket { symbol: BracketSymbol::Aromatic(BracketAromatic::C), .. } => {
                 let mut has_double_o = false;
                 let mut has_oh = false;
                 let mut has_oc = false;
                 let mut has_n = false;
                 let mut carbon_neighbor_count = 0;
-                // SMILES might not have explicit H
 
                 for bond in &atom.bonds {
                     let other_idx = bond.tid;
@@ -34,40 +41,34 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     let kind = &bond.kind;
 
                     if matches!(kind, BondKind::Double) {
-                        if matches!(other_atom.kind, AtomKind::Aliphatic(Aliphatic::O) | AtomKind::Aromatic(_)) {
+                        if is_element(&other_atom.kind, Element::O) || is_aromatic_element(&other_atom.kind, BracketAromatic::O) {
                             has_double_o = true;
-                        } else if matches!(other_atom.kind, AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C)) {
+                        } else if is_element(&other_atom.kind, Element::C) || is_aromatic_element(&other_atom.kind, BracketAromatic::C) {
                             groups.push("alkene".to_string());
                         }
                     } else if matches!(kind, BondKind::Triple) {
-                        if matches!(other_atom.kind, AtomKind::Aliphatic(Aliphatic::N)) {
+                        if is_element(&other_atom.kind, Element::N) || is_aromatic_element(&other_atom.kind, BracketAromatic::N) {
                             groups.push("nitrile".to_string());
-                        } else if matches!(other_atom.kind, AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C)) {
+                        } else if is_element(&other_atom.kind, Element::C) || is_aromatic_element(&other_atom.kind, BracketAromatic::C) {
                             groups.push("alkyne".to_string());
                         }
                     } else if matches!(kind, BondKind::Single | BondKind::Elided) {
-                        match &other_atom.kind {
-                            AtomKind::Aliphatic(Aliphatic::O) | AtomKind::Aromatic(purr::feature::Aromatic::O) => {
-                                let mut o_has_c = false;
-                                for o_bond in &other_atom.bonds {
-                                    if o_bond.tid == i { continue; }
-                                    if matches!(atoms[o_bond.tid].kind, AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C)) {
-                                        o_has_c = true;
-                                    }
+                        if is_element(&other_atom.kind, Element::O) || is_aromatic_element(&other_atom.kind, BracketAromatic::O) {
+                            let mut o_has_c = false;
+                            for o_bond in &other_atom.bonds {
+                                if o_bond.tid == i { continue; }
+                                let o_neighbor = &atoms[o_bond.tid];
+                                if is_element(&o_neighbor.kind, Element::C) || is_aromatic_element(&o_neighbor.kind, BracketAromatic::C) {
+                                    o_has_c = true;
                                 }
-                                if o_has_c { has_oc = true; } else { has_oh = true; }
-                            },
-                            AtomKind::Aliphatic(Aliphatic::N) | AtomKind::Aromatic(purr::feature::Aromatic::N) => {
-                                has_n = true;
-                            },
-                            AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C) => {
-                                carbon_neighbor_count += 1;
-                            },
-                            AtomKind::Aliphatic(Aliphatic::F) | AtomKind::Aliphatic(Aliphatic::Cl) |
-                            AtomKind::Aliphatic(Aliphatic::Br) | AtomKind::Aliphatic(Aliphatic::I) => {
-                                groups.push("halide".to_string());
-                            },
-                            _ => {}
+                            }
+                            if o_has_c { has_oc = true; } else { has_oh = true; }
+                        } else if is_element(&other_atom.kind, Element::N) || is_aromatic_element(&other_atom.kind, BracketAromatic::N) {
+                            has_n = true;
+                        } else if is_element(&other_atom.kind, Element::C) || is_aromatic_element(&other_atom.kind, BracketAromatic::C) {
+                            carbon_neighbor_count += 1;
+                        } else if is_halide(&other_atom.kind) {
+                            groups.push("halide".to_string());
                         }
                     }
                 }
@@ -77,14 +78,13 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     else if has_oc { groups.push("ester".to_string()); }
                     else if has_n { groups.push("amide".to_string()); }
                     else if carbon_neighbor_count < 2 {
-                        // If it has < 2 carbon neighbors, it's likely an aldehyde (one H) or formaldehyde (two H)
                         groups.push("aldehyde".to_string());
                     }
                     else { groups.push("ketone".to_string()); }
                 }
             },
-            // Check for Alcohols and Ethers
-            AtomKind::Aliphatic(Aliphatic::O) | AtomKind::Aromatic(purr::feature::Aromatic::O) => {
+            // Check for Alcohols and Ethers (Oxygens)
+            _ if is_element(&atom.kind, Element::O) || is_aromatic_element(&atom.kind, BracketAromatic::O) => {
                 let mut is_carbonyl_related = false;
                 let mut neighbor_carbons = 0;
                 
@@ -95,13 +95,12 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     }
                     
                     let other = &atoms[bond.tid];
-                    if matches!(other.kind, AtomKind::Aliphatic(Aliphatic::C) | AtomKind::Aromatic(purr::feature::Aromatic::C)) {
+                    if is_element(&other.kind, Element::C) || is_aromatic_element(&other.kind, BracketAromatic::C) {
                         neighbor_carbons += 1;
-                        // Check if the neighbor carbon is part of a carbonyl
                         for c_bond in &other.bonds {
                             if matches!(c_bond.kind, BondKind::Double) {
                                 let potential_o = &atoms[c_bond.tid];
-                                if matches!(potential_o.kind, AtomKind::Aliphatic(Aliphatic::O) | AtomKind::Aromatic(purr::feature::Aromatic::O)) {
+                                if is_element(&potential_o.kind, Element::O) || is_aromatic_element(&potential_o.kind, BracketAromatic::O) {
                                     is_carbonyl_related = true;
                                 }
                             }
@@ -117,29 +116,27 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     }
                 }
             },
-            // Check for Amines and Nitro groups
-            AtomKind::Aliphatic(Aliphatic::N) => {
-                let mut double_o_count = 0;
+            // Check for Amines and Nitro groups (Nitrogens)
+            _ if is_element(&atom.kind, Element::N) || is_aromatic_element(&atom.kind, BracketAromatic::N) => {
+                let mut o_bond_count = 0;
                 for bond in &atom.bonds {
-                    if matches!(bond.kind, BondKind::Double) {
-                        let other = &atoms[bond.tid];
-                        if matches!(other.kind, AtomKind::Aliphatic(Aliphatic::O)) {
-                            double_o_count += 1;
-                        }
+                    let other = &atoms[bond.tid];
+                    if is_element(&other.kind, Element::O) || is_aromatic_element(&other.kind, BracketAromatic::O) {
+                        o_bond_count += 1;
                     }
                 }
-                if double_o_count >= 2 {
+                if o_bond_count >= 2 {
                     groups.push("nitro".to_string());
                 } else {
-                    // Check if part of amide (already handled in Carbon search, but let's be safe)
                     let mut is_amide = false;
                     for bond in &atom.bonds {
                         let other = &atoms[bond.tid];
-                        if matches!(other.kind, AtomKind::Aliphatic(Aliphatic::C)) {
+                        if is_element(&other.kind, Element::C) || is_aromatic_element(&other.kind, BracketAromatic::C) {
                             for c_bond in &other.bonds {
                                 if c_bond.tid == i { continue; }
                                 if matches!(c_bond.kind, BondKind::Double) {
-                                    if matches!(atoms[c_bond.tid].kind, AtomKind::Aliphatic(Aliphatic::O)) {
+                                    let potential_o = &atoms[c_bond.tid];
+                                    if is_element(&potential_o.kind, Element::O) || is_aromatic_element(&potential_o.kind, BracketAromatic::O) {
                                         is_amide = true;
                                     }
                                 }
@@ -151,9 +148,6 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
                     }
                 }
             },
-            AtomKind::Aromatic(_) => {
-                groups.push("aromatic_ring".to_string());
-            }
             _ => {}
         }
     }
@@ -161,4 +155,44 @@ pub fn detect_functional_groups(smiles: &str) -> Vec<String> {
     groups.sort();
     groups.dedup();
     groups
+}
+
+fn is_element(kind: &AtomKind, element: Element) -> bool {
+    match kind {
+        AtomKind::Aliphatic(al) => match (al, &element) {
+            (Aliphatic::C, Element::C) => true,
+            (Aliphatic::N, Element::N) => true,
+            (Aliphatic::O, Element::O) => true,
+            (Aliphatic::F, Element::F) => true,
+            (Aliphatic::Cl, Element::Cl) => true,
+            (Aliphatic::Br, Element::Br) => true,
+            (Aliphatic::I, Element::I) => true,
+            _ => false,
+        },
+        AtomKind::Aromatic(ar) => match (ar, &element) {
+            (Aromatic::C, Element::C) => true,
+            (Aromatic::N, Element::N) => true,
+            (Aromatic::O, Element::O) => true,
+            _ => false,
+        },
+        AtomKind::Bracket { symbol: BracketSymbol::Element(el), .. } => el == &element,
+        _ => false,
+    }
+}
+
+fn is_aromatic_element(kind: &AtomKind, element: BracketAromatic) -> bool {
+    match kind {
+        AtomKind::Aromatic(ar) => match (ar, &element) {
+            (Aromatic::C, BracketAromatic::C) => true,
+            (Aromatic::N, BracketAromatic::N) => true,
+            (Aromatic::O, BracketAromatic::O) => true,
+            _ => false,
+        },
+        AtomKind::Bracket { symbol: BracketSymbol::Aromatic(ar), .. } => ar == &element,
+        _ => false,
+    }
+}
+
+fn is_halide(kind: &AtomKind) -> bool {
+    is_element(kind, Element::F) || is_element(kind, Element::Cl) || is_element(kind, Element::Br) || is_element(kind, Element::I)
 }
